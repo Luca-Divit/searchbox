@@ -1,3 +1,47 @@
-h1 {
-  color: red;
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  background-color: moccasin;
+  height: 100vh;
+  text-align: center;
+}
+
+.searchbox{
+  padding-top: 3em;
+}
+
+#my-label {
+  font-size: 2em;
+}
+
+#search {
+  padding: 1em;
+  padding-left: 1.8em;
+  padding-right: 1.8em;
+  font-size: 1.2em;
+}
+
+.matches {
+  border: solid 1px grey;
+  width: 16em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  list-style: none;
+  margin: 0 auto;
+  background: linear-gradient(to top, rgba(255, 255, 255, 0.8), rgba(240, 240, 240, 0.8));
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: .2em;
+  padding-right: .2em;
+}
+
+.population {
+  font-size: .7em;
 }
