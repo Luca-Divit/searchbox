@@ -25,6 +25,9 @@ function numberWithCommas(x) {
 // event listener on the keyboard when typing and injecting the result on the html
 searchbox.addEventListener('keyup', e => {
   list.innerHTML = "";
+  if (e.currentTarget.value === "") {
+    return;
+  }
   const re = new RegExp(e.currentTarget.value, 'ig');
   fetch(endpoint)
   .then(response => response.json())
@@ -33,9 +36,9 @@ searchbox.addEventListener('keyup', e => {
       if(element.city.match(re) || element.admin_name.match(re)) {
         list.insertAdjacentHTML(
           'beforeend',
-          `<li><span class="city-name">${element.city}, </span><span class="state-name">${element.admin_name}</span><span class="population">${numberWithCommas(element.population)}</span></li>`
-        );
+          `<li><span class="city-name">${element.city.match(re) ? "<mark>" + element.city + "</mark>" : element.city}, </span><span class="state-name">${element.admin_name.match(re) ? "<mark>" + element.admin_name + "</mark>" : element.admin_name}</span><span class="population">${numberWithCommas(element.population)}</span></li>`
+        )
       }
-    });
-  });
+    })
+  })
 });
